@@ -3,34 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajay Kashyap | Zippy Web Partner</title>
+    <title>VIP Card | Ajay Kashyap</title>
     <style>
-        body { margin: 0; background: #000814; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Segoe UI', sans-serif; color: white; overflow: hidden; }
-        .card { width: 300px; padding: 25px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border-radius: 25px; border: 1px solid #00f2ff; text-align: center; box-shadow: 0 0 25px rgba(0, 242, 255, 0.3); }
-        .profile-pic { width: 130px; height: 130px; border-radius: 50%; border: 3px solid #00f2ff; object-fit: cover; box-shadow: 0 0 15px #00f2ff; margin-bottom: 15px; }
-        h1 { font-size: 22px; margin: 10px 0 5px; letter-spacing: 1px; }
-        .role { color: #00f2ff; font-weight: bold; font-size: 13px; text-transform: uppercase; margin-bottom: 20px; display: block; }
-        .level-bar { width: 100%; height: 8px; background: #111; border-radius: 10px; margin-bottom: 25px; overflow: hidden; border: 1px solid #333; }
-        .fill { width: 35%; height: 100%; background: linear-gradient(90deg, #00f2ff, #0077b6); }
-        .links { display: flex; flex-direction: column; gap: 10px; }
-        .btn { padding: 12px; background: rgba(0, 242, 255, 0.1); border: 1px solid #00f2ff; color: white; text-decoration: none; border-radius: 10px; font-size: 14px; transition: 0.3s; }
-        .btn:hover { background: #00f2ff; color: black; box-shadow: 0 0 20px #00f2ff; }
-        .footer { font-size: 10px; color: #555; margin-top: 30px; font-style: italic; }
+        body { margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center; background: #000; font-family: 'Segoe UI', sans-serif; perspective: 1000px; }
+        
+        /* Card Container */
+        .card-container { width: 350px; height: 550px; cursor: pointer; position: relative; transform-style: preserve-3d; transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .card-container:active { transform: rotateY(180deg); } /* Mobile par touch karne se flip hoga */
+
+        .front, .back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 20px; overflow: hidden; border: 2px solid rgba(0, 242, 255, 0.5); box-shadow: 0 0 30px rgba(0, 242, 255, 0.2); }
+
+        /* FRONT SIDE */
+        .front { background: url('ajay.jpg') no-repeat center center; background-size: cover; }
+        .front-overlay { position: absolute; bottom: 0; width: 100%; height: 60%; background: linear-gradient(transparent, rgba(0,0,0,0.9)); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 30px; }
+        .front h1 { margin: 0; font-size: 26px; color: #fff; text-shadow: 0 0 10px #00f2ff; text-transform: uppercase; letter-spacing: 2px; }
+        .role { color: #00f2ff; font-weight: bold; font-size: 14px; margin-bottom: 15px; }
+        .level-bar { width: 80%; height: 10px; background: #222; border-radius: 5px; border: 1px solid #00f2ff; position: relative; overflow: hidden; }
+        .fill { width: 35%; height: 100%; background: #00f2ff; box-shadow: 0 0 15px #00f2ff; }
+
+        /* BACK SIDE */
+        .back { background: #001d3d; transform: rotateY(180deg); display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 20px; box-sizing: border-box; }
+        .zippy-logo { width: 100px; filter: drop-shadow(0 0 5px cyan); }
+        .back h2 { color: #00f2ff; margin: 0; font-size: 20px; }
+        .details { text-align: center; color: #ccc; font-size: 13px; line-height: 1.6; }
+        .qr-code { width: 150px; height: 150px; background: white; border-radius: 10px; padding: 10px; border: 4px solid #00f2ff; }
+        .tagline { font-size: 11px; color: #555; font-style: italic; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <img src="ajay.jpg" alt="Ajay Kashyap" class="profile-pic">
-        <h1>AJAY KASHYAP</h1>
-        <span class="role">Strategic Partner</span>
-        <div style="font-size: 10px; margin-bottom: 5px; color: #aaa;">LEVEL 1 - SILVER PARTNER</div>
-        <div class="level-bar"><div class="fill"></div></div>
-        <div class="links">
-            <a href="https://www.instagram.com/ajay__kashyap__bhai__" target="_blank" class="btn">INSTAGRAM</a>
-            <a href="https://www.facebook.com/share/18AUaKHH4W/" target="_blank" class="btn">FACEBOOK</a>
-            <a href="https://wa.me/918957779017" target="_blank" class="btn">WHATSAPP</a>
+
+    <div class="card-container">
+        <div class="front">
+            <div class="front-overlay">
+                <h1>AJAY KASHYAP</h1>
+                <span class="role">STRATEGIC PARTNER</span>
+                <div class="level-bar"><div class="fill"></div></div>
+                <p style="font-size: 10px; margin-top: 10px;">LEVEL 1 - SILVER MEMBER</p>
+            </div>
         </div>
-        <p class="footer">"Power is earned, not given. Reach the Next Level."</p>
+
+        <div class="back">
+            <img src="https://via.placeholder.com/100x40/00f2ff/000000?text=ZIPPY+WEB" class="zippy-logo">
+            <h2>ZIPPY WEB AGENCY</h2>
+            <div class="details">
+                Email: support@zippyweb.com<br>
+                Web: www.zippyweb.com<br>
+                Service: Web Design & AI Solutions
+            </div>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ajay-digital-card.vercel.app" class="qr-code">
+            <p class="tagline">Power is earned, not given.</p>
+        </div>
     </div>
+
 </body>
 </html>
